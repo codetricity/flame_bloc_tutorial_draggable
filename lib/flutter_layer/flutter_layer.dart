@@ -23,8 +23,8 @@ class FlutterLayer extends StatelessWidget {
             Text('Motion State: ${state.starMotionState.name}',
                 style: Theme.of(context).textTheme.bodyText1),
             Slider(
-              max: 5.0,
-              divisions: 5,
+              max: 4.0,
+              divisions: 4,
               value: state.treasureSliderValue,
               label: state.treasureSliderValue.toInt().toString(),
               onChanged: (value) {
