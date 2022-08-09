@@ -15,7 +15,7 @@ class Star extends SpriteComponent
   Future<void> onLoad() async {
     await super.onLoad();
     sprite = await gameRef.loadSprite('star.png');
-    position = Vector2(100, 50);
+    position = Vector2(300, 50);
     size = Vector2.all(100);
   }
 

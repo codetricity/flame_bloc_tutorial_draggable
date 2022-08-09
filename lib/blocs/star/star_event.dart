@@ -18,3 +18,9 @@ class SetStarMotionEvent extends StarEvent {
 }
 
 class StopStarMotionEvent extends StarEvent {}
+
+class ChangeIncrementEvent extends StarEvent {
+  final double value;
+
+  const ChangeIncrementEvent({required this.value});
+}

@@ -12,18 +12,28 @@ class FlutterLayer extends StatelessWidget {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
+            Text(
               'Flutter Dashboard',
-              style: TextStyle(color: Colors.red, fontSize: 24),
+              style: Theme.of(context).textTheme.bodyText2,
             ),
             Text(
               'Moves Left: ${state.starAmount}',
-              style: const TextStyle(color: Colors.white),
+              style: Theme.of(context).textTheme.bodyText1,
             ),
-            Text(
-              'Motion State: ${state.starMotionState.name}',
-              style: const TextStyle(color: Colors.white),
-            )
+            Text('Motion State: ${state.starMotionState.name}',
+                style: Theme.of(context).textTheme.bodyText1),
+            Slider(
+              max: 5.0,
+              divisions: 5,
+              value: state.treasureSliderValue,
+              label: state.treasureSliderValue.toInt().toString(),
+              onChanged: (value) {
+                print(value);
+                context
+                    .read<StarBloc>()
+                    .add(ChangeIncrementEvent(value: value));
+              },
+            ),
           ],
         );
       },

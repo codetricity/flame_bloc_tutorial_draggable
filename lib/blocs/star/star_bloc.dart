@@ -23,5 +23,9 @@ class StarBloc extends Bloc<StarEvent, StarState> {
       print('stopping motion from bloc');
       emit(state.copyWith(starMotionState: StarMotionState.stop));
     });
+
+    on<ChangeIncrementEvent>((event, emit) {
+      emit(state.copyWith(treasureSliderValue: event.value));
+    });
   }
 }
