@@ -9,7 +9,7 @@ void main() {
     theme: ThemeData(
       textTheme: TextTheme(
         bodyText2: TextStyle(fontSize: 30, color: Colors.yellow[50]),
-        bodyText1: TextStyle(fontSize: 24, color: Colors.lightBlue[100]),
+        bodyText1: TextStyle(fontSize: 36, color: Colors.lightBlue[100]),
       ),
     ),
     home: Scaffold(

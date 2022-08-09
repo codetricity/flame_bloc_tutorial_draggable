@@ -7,6 +7,7 @@ class FlutterLayer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<String> sliderLabels = ['star', 'jewel', 'heart', 'key', 'treasure'];
     return BlocBuilder<StarBloc, StarState>(
       builder: (context, state) {
         return Column(
@@ -14,21 +15,29 @@ class FlutterLayer extends StatelessWidget {
           children: [
             Text(
               'Flutter Dashboard',
-              style: Theme.of(context).textTheme.bodyText2,
             ),
-            Text(
-              'Moves Left: ${state.starAmount}',
-              style: Theme.of(context).textTheme.bodyText1,
+            Row(
+              children: [
+                const Text('moves remaining: '),
+                Text(
+                  ' ${state.starAmount}',
+                  style: Theme.of(context).textTheme.bodyText1,
+                ),
+              ],
             ),
-            Text('Motion State: ${state.starMotionState.name}',
-                style: Theme.of(context).textTheme.bodyText1),
+            Row(
+              children: [
+                const Text('motion: '),
+                Text(' ${state.starMotionState.name}',
+                    style: Theme.of(context).textTheme.bodyText1),
+              ],
+            ),
             Slider(
               max: 4.0,
               divisions: 4,
               value: state.treasureSliderValue,
-              label: state.treasureSliderValue.toInt().toString(),
+              label: sliderLabels[state.treasureSliderValue.toInt()],
               onChanged: (value) {
-                print(value);
                 context
                     .read<StarBloc>()
                     .add(ChangeIncrementEvent(value: value));
