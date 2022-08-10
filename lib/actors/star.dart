@@ -26,7 +26,8 @@ class Star extends SpriteComponent
     keySprite = await gameRef.loadSprite('key.png');
     treasureSprite = await gameRef.loadSprite('treasure.png');
     sprite = starSprite;
-    position = Vector2(300, 50);
+    position = gameRef.size / 2;
+    anchor = Anchor.center;
     size = Vector2.all(100);
   }
 
