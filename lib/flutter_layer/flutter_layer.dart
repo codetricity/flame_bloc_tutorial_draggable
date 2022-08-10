@@ -9,6 +9,8 @@ class FlutterLayer extends StatelessWidget {
   Widget build(BuildContext context) {
     List<String> sliderLabels = ['star', 'jewel', 'heart', 'key', 'treasure'];
     var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
+
     return BlocBuilder<StarBloc, StarState>(
       builder: (context, state) {
         return Column(
@@ -21,7 +23,10 @@ class FlutterLayer extends StatelessWidget {
             Expanded(
               child: Row(
                 children: [
-                  const Text('moves remaining: '),
+                  Text(
+                    'moves: ',
+                    style: TextStyle(fontSize: width > 500 ? 32 : 16),
+                  ),
                   Text(
                     ' ${state.starAmount}',
                     style: Theme.of(context).textTheme.bodyText1,
@@ -37,8 +42,8 @@ class FlutterLayer extends StatelessWidget {
                         itemBuilder: (context, index) {
                           return Image.asset(
                             'assets/images/star.png',
-                            height: 20,
-                            width: 20,
+                            height: width > 500 ? 20 : 10,
+                            width: width > 500 ? 20 : 10,
                           );
                         },
                       ),
@@ -49,7 +54,10 @@ class FlutterLayer extends StatelessWidget {
             ),
             Row(
               children: [
-                const Text('motion: '),
+                Text(
+                  'motion: ',
+                  style: TextStyle(fontSize: width > 500 ? 32 : 16),
+                ),
                 Text(' ${state.starMotionState.name}',
                     style: Theme.of(context).textTheme.bodyText1),
               ],
